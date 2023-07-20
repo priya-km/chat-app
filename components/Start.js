@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -7,6 +7,9 @@ import {
   TextInput,
   TouchableOpacity,
   ImageBackground,
+  KeyboardAvoidingView,
+  Platform,
+  Keyboard,
 } from "react-native";
 
 const image = require("../img/background.png");
@@ -15,6 +18,7 @@ const Start = ({ navigation }) => {
   const [name, setName] = useState("");
   const [color, setColor] = useState("");
   const [isTextInputFocused, setIsTextInputFocused] = useState(false);
+  const [keyboardShown, setKeyboardShown] = useState(false);
 
   const handleTextInputFocus = () => {
     setIsTextInputFocused(true); // Change textinput to black 100% opacity when the user presses/starts typing
@@ -25,13 +29,40 @@ const Start = ({ navigation }) => {
     setIsTextInputFocused(false);
   };
 
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      "keyboardDidShow",
+      () => {
+        setKeyboardShown(true);
+      }
+    );
+
+    const keyboardDidHideListener = Keyboard.addListener(
+      "keyboardDidHide",
+      () => {
+        setKeyboardShown(false);
+      }
+    );
+
+    return () => {
+      keyboardDidShowListener.remove();
+      keyboardDidHideListener.remove();
+    };
+  }, []);
+
   return (
     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
       <View style={styles.container}>
         <View style={styles.subContainer}>
           <Text style={styles.chatApp}>Chat App</Text>
         </View>
-        <View style={styles.inputButtonContainer}>
+        <KeyboardAvoidingView
+          style={[
+            styles.inputButtonContainer,
+            { height: keyboardShown ? "60%" : "40%" },
+          ]}
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
           <View style={styles.subContainer}>
             <TextInput
               style={[
@@ -79,7 +110,7 @@ const Start = ({ navigation }) => {
               />
             </View>
           </View>
-        </View>
+        </KeyboardAvoidingView>
       </View>
     </ImageBackground>
   );
@@ -99,8 +130,8 @@ const styles = StyleSheet.create({
   },
   bgColor: {
     fontSize: 16,
-    fontWeight: 300,
-    fontColor: "#757083",
+    fontWeight: "300",
+    color: "#757083",
   },
   colorButtonContainer: {
     width: "70%",
@@ -119,12 +150,12 @@ const styles = StyleSheet.create({
   },
   inputButtonContainer: {
     width: "80%",
-    height: "30%",
+    height: "60%",
     justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "white", // Background color of the white box
     marginTop: "8%",
-    marginBottom: "15%",
+    marginBottom: "10%",
   },
   textInput: {
     width: "100%",
@@ -133,19 +164,18 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 15,
     fontSize: 16,
-    fontWeight: 300,
+    fontWeight: "300",
     color: "#757083",
     opacity: "50%",
-    borderColor: "757083",
+    // borderColor: "757083",
   },
   chatButtonContainer: {
     width: "100%",
-    height: "fixed",
     alignItems: "center",
   },
   chatApp: {
     fontSize: 45,
-    fontWeight: 600,
+    fontWeight: "600",
     color: "#ffffff",
   },
 });
