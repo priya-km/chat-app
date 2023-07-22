@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -21,11 +21,12 @@ const Start = ({ navigation }) => {
   const [keyboardShown, setKeyboardShown] = useState(false);
 
   const handleTextInputFocus = () => {
-    setIsTextInputFocused(true); // Change textinput to black 100% opacity when the user presses/starts typing
+    /* Change text input to black 100% opacity when the user presses/starts typing */
+    setIsTextInputFocused(true);
   };
 
   const handleTextInputBlur = () => {
-    // When the text input is not focused, the color of your name text is purple and 50% opacity
+    /* When the text input is not focused, the color of your name text is purple and 50% opacity */
     setIsTextInputFocused(false);
   };
 
@@ -54,6 +55,7 @@ const Start = ({ navigation }) => {
     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
       <View style={styles.container}>
         <View style={styles.subContainer}>
+          {/* Rendered text using the <Text> component */}
           <Text style={styles.chatApp}>Chat App</Text>
         </View>
         <KeyboardAvoidingView
@@ -68,8 +70,10 @@ const Start = ({ navigation }) => {
               style={[
                 styles.textInput,
                 {
-                  opacity: isTextInputFocused ? 1 : 0.5, // changing text opacity if the user starts typing in input box
-                  color: isTextInputFocused ? "black" : "#757083", // changing text color to black if the user starts typing
+                  /* Changing text opacity if the user starts typing in the input box */
+                  opacity: isTextInputFocused ? 1 : 0.5,
+                  /* Changing text color to black if the user starts typing */
+                  color: isTextInputFocused ? "black" : "#757083",
                 },
               ]}
               value={name}
@@ -153,7 +157,7 @@ const styles = StyleSheet.create({
     height: "60%",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "white", // Background color of the white box
+    backgroundColor: "white" /* Background color of the white box */,
     marginTop: "8%",
     marginBottom: "10%",
   },
@@ -167,7 +171,6 @@ const styles = StyleSheet.create({
     fontWeight: "300",
     color: "#757083",
     opacity: "50%",
-    // borderColor: "757083",
   },
   chatButtonContainer: {
     width: "100%",

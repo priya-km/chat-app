@@ -11,7 +11,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Start" // First screen to load upon starting app
+        initialRouteName="Start" /* First screen to load upon starting app */
       >
         <Stack.Screen
           name="Home"
