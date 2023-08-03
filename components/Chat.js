@@ -19,7 +19,7 @@ const Chat = ({ db, route, navigation, isConnected }) => {
     setMessages(JSON.parse(cachedMessages));
   };
 
-  // will delete info from users async storage when called
+  // will delete messages from users async storage when called
   const deleteCachedMessages = async () => {
     try {
       await AsyncStorage.removeItem("messages");
