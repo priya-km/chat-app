@@ -19,6 +19,16 @@ const Chat = ({ db, route, navigation, isConnected }) => {
     setMessages(JSON.parse(cachedMessages));
   };
 
+  // will delete info from users async storage when called
+  const deleteCachedMessages = async () => {
+    try {
+      await AsyncStorage.removeItem("messages");
+      setMessages([]);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   let unsubMessages;
 
   useEffect(() => {
