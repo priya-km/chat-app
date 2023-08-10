@@ -9,24 +9,16 @@ import {
   query,
   orderBy,
 } from "firebase/firestore";
+import CustomActions from "./CustomActions";
+import MapView from "react-native-maps";
 
-const Chat = ({ db, route, navigation, isConnected }) => {
+const Chat = ({ db, route, navigation, isConnected, storage }) => {
   const { name, color, userID } = route.params;
   const [messages, setMessages] = useState([]); // set messages state
 
   const loadCachedMessages = async () => {
     const cachedMessages = (await AsyncStorage.getItem("messages")) || "[]";
     setMessages(JSON.parse(cachedMessages));
-  };
-
-  // will delete messages from users async storage when called
-  const deleteCachedMessages = async () => {
-    try {
-      await AsyncStorage.removeItem("messages");
-      setMessages([]);
-    } catch (error) {
-      console.log(error.message);
-    }
   };
 
   let unsubMessages;
@@ -70,6 +62,16 @@ const Chat = ({ db, route, navigation, isConnected }) => {
     };
   }, [isConnected]);
 
+  // will delete messages from users async storage when called
+  const deleteCachedMessages = async () => {
+    try {
+      await AsyncStorage.removeItem("messages");
+      setMessages([]);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   const cachedMessages = async (messagesToCache) => {
     try {
       await AsyncStorage.setItem("messages", JSON.stringify(messagesToCache));
@@ -105,23 +107,55 @@ const Chat = ({ db, route, navigation, isConnected }) => {
     );
   };
 
+  const renderCustomActions = (props) => {
+    // renderCustomActions function
+    return (
+      <CustomActions
+        onSend={onSend}
+        userID={userID}
+        storage={storage}
+        {...props}
+      />
+    );
+  };
+
+  const renderCustomView = (props) => {
+    const { currentMessage } = props;
+    if (currentMessage.location) {
+      return (
+        <MapView
+          style={{ width: 150, height: 100, borderRadius: 13, margin: 3 }}
+          region={{
+            latitude: currentMessage.location.latitude,
+            longitude: currentMessage.location.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        />
+      );
+    }
+    return null;
+  };
+
   return (
     <View style={[styles.container, { backgroundColor: color }]}>
       <GiftedChat
         messages={messages}
         renderBubble={renderBubble}
-        onSend={(messages) => onSend(messages)}
-        user={{ _id: userID, name }}
         renderInputToolbar={renderInputToolbar}
+        onSend={(messages) => onSend(messages)}
+        renderActions={renderCustomActions}
+        renderCustomView={renderCustomView}
+        user={{ _id: userID, name }}
       />
       {Platform.OS === "android" ? (
         /* If the user is using an android device, add the height property, if not, they're using ios then do nothing aka null. This is so the keyboard does not cover the text input space on older android devices. */
         <KeyboardAvoidingView behavior="height" />
       ) : null}
       {/* Setting a padding prop if the user is on ios so the keyboard doesn't cover anything */}
-      {Platform.OS === "ios" ? (
+      {/*      {Platform.OS === "ios" ? (
         <KeyboardAvoidingView behavior="padding" />
-      ) : null}
+      ) : null} */}
     </View>
   );
 };
