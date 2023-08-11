@@ -99,7 +99,7 @@ const CustomActions = ({
   return (
     <TouchableOpacity
       accessible={true}
-      accessibilityLabel="Communication options"
+      accessibilityLabel="comunication options"
       accessibilityHint="Lets you choose to send an image or your geolocation."
       accessibilityRole="button"
       style={styles.container}
