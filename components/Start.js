@@ -49,6 +49,7 @@ const Start = ({ navigation }) => {
     setIsTextInputFocused(false);
   };
 
+  // show/hide keyboard
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(
       "keyboardDidShow",
@@ -70,11 +71,12 @@ const Start = ({ navigation }) => {
     };
   }, []);
 
+  // render start screen
+
   return (
     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
       <View style={styles.container}>
         <View style={styles.subContainer}>
-          {/* Rendered text using the <Text> component */}
           <Text style={styles.chatApp}>Chat App</Text>
         </View>
         <KeyboardAvoidingView
@@ -117,6 +119,7 @@ const Start = ({ navigation }) => {
                 onPress={() => setColor("#090C08")}
               ></TouchableOpacity>
               <TouchableOpacity
+                // ACCESSIBILITY LABELS
                 accessible={true}
                 accessibilityLabel="Purple background color"
                 accessibilityHint="Lets you choose a purple background color for the chat screen"

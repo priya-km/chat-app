@@ -108,7 +108,7 @@ const Chat = ({ db, route, navigation, isConnected, storage }) => {
   };
 
   const renderCustomActions = (props) => {
-    // renderCustomActions function
+    // renderCustomActions function for sending pics/location or taking pics
     return (
       <CustomActions
         onSend={onSend}
@@ -119,6 +119,7 @@ const Chat = ({ db, route, navigation, isConnected, storage }) => {
     );
   };
 
+  // Map rendering for location sharing
   const renderCustomView = (props) => {
     const { currentMessage } = props;
     if (currentMessage.location) {
@@ -136,6 +137,8 @@ const Chat = ({ db, route, navigation, isConnected, storage }) => {
     }
     return null;
   };
+
+  // render chat screen
 
   return (
     <View style={[styles.container, { backgroundColor: color }]}>

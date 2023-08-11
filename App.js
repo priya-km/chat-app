@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { Alert } from "react-native";
 import { getStorage } from "firebase/storage";
 
+// create navigator
 const Stack = createNativeStackNavigator();
 LogBox.ignoreLogs(["AsyncStorage has been extracted from"]);
 
@@ -31,10 +32,11 @@ const App = () => {
 
   // initialize firebase
   const app = initializeApp(firebaseConfig);
-
+  // initialize cloud firestore
   const db = getFirestore(app);
   const storage = getStorage(app);
 
+  // see if the user has an online connection, if not display an alert message
   useEffect(() => {
     if (connectionStatus.isConnected === false) {
       Alert.alert("Connection lost!");
@@ -44,6 +46,7 @@ const App = () => {
     }
   }, [connectionStatus.isConnected]);
 
+  // render screens and check connection
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
