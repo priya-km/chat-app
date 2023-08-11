@@ -25,7 +25,7 @@ reader so that I can engage with a chat interface.<br>
 <h1>Downloading & Using Chat App</h1><br>
 - If you would like to test chat app for yourself please follow the steps below.<br>
 ● Clone the repository/Download the ZIP: https://github.com/priya-km/chat-app.git <br>
-● Download & Install Expo:
+● Download & Install Expo: <br>
 - Install Expo CLI as a global npm package: <br>
             - Mac users: yarn add global expo-cli <br>
             OR <br>
