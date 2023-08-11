@@ -22,13 +22,28 @@ time.<br>
 ● As a user with a visual impairment, I want to use a chat app that is compatible with a screen
 reader so that I can engage with a chat interface.<br>
 
+<h1>Downloading & Using Chat App</h1><br>
+- If you would like to test chat app for yourself please follow the steps below.<br>
+● Clone the repository/Download the ZIP: https://github.com/priya-km/chat-app.git <br>
+● Download & Install Expo:
+- Install Expo CLI as a global npm package: <br>
+            - Mac users: yarn add global expo-cli <br>
+            OR <br>
+            - Windows users: npm install --global expo-cli <br>
+            <br>
+                                                               
+● Create an account and log in at https://expo.dev/ <br>
+● Follow expo CLI's instructions. <br>
+● Install the Expo Go app on your phone & log in (for testing purposes) <br>
+● Start the project: npx expo start <br>
+● Scan the QR code provided in your terminal, or choose deploy method from the menu on the terminal.  <br>
 
 <h1>Tech Stack</h1><br>
 ● React Native.<br>
 ● Expo.<br>
 ● Google Firestore Database.<br>
-    - Google Firebase authentication for anonymous sign in<br>
-    - Firebase Cloud Storage for storing images.<br>
+        - Google Firebase authentication for anonymous sign in<br>
+        - Firebase Cloud Storage for storing images.<br>
 ● Gifted Chat library.<br>
 
 <h2>Author</h2>
