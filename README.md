@@ -1,44 +1,15 @@
-# chat-app
+![Chat App preview images](https://github.com/priya-km/chat-app/assets/118628757/027540f3-4d83-4033-aea8-d9295d1af82f)
 
-<h1>Objective<h1><br></h1>
-To build a chat app for mobile devices using React Native. The app will
-provide users with a chat interface and options to share images and their
-location.<br>
-  
-<h1>Context</h1><br>
-More and more people use their phones for daily tasks, such as shopping, creating to-do lists,
-communicating with friends, scheduling meetings, and more. That's why many companies offer native
-mobile versions of their web apps, or even skip creating a web app entirely.
+# Chat App
 
-In the past, building high-quality mobile apps required a lot of time and money because writing apps
-for different platforms like iOS and Android required specialized programmers who could build and
-maintain multiple codebases.
+This is Chat App. A React Native app designed to allow users to simultaneously message, send photos, and their locations to one another. Users can also view chat logs even while offline, for their convenience.<br>
 
-Over time, however, new technologies emerged that made it easier for companies to build and
-maintain mobile applications using familiar syntax. One of these technologies is React Native, a
-framework for building Android and iOS apps that only requires one codebase.
-For this Achievement’s project, you’ll use React Native, Expo, and Google Firestore Database to build a
-chat app that you can add to your portfolio and demonstrate your knowledge of JavaScript mobile
-development.<br>
+<h1>Key Features</h1>
+<h3> ● User Registration</h3> On the homepage users can register by entering their name and choosing a background color for their chat screen.<br>
+<h3> ● Chat Screen</h3> A page displaying the conversation, as well as an input field, submit button, and an action button.<br>
+<h3> ● Communication Features</h3> Other than chat messages, users can send photos from their device library, take a photo, and send their locations.<br>
+<h3> ● Data Storage</h3> Users are able to access their chat logs when offline as their data gets stored online and offline.<br>
 
-<h1>The 5 Ws</h1><br>
-1. Who—The users of the mobile chat app. These could be friends, family or other
-students on this course. Your codebase will be used by other developers working on
-the product.<br>
-
-2. What—A native chat app built with React Native, as well as all the relevant
-documentation.<br>
-
-3. When—Whenever users of your chat app want to communicate with each other.<br>
-
-4. Where—The app will be optimized for both Android and iOS devices. You will use
-Expo to develop the app and Google Firestore to store the chat messages.<br>
-
-5. Why—Mobile chat apps are among the most commonly downloaded and used apps
-in the world, so knowing how to build a chat app is an indispensable skill. The app
-will demonstrate your React Native development skills.<br>
-
-<h1>Features and Requirements</h1><br>
 <h2></h2></h1>User Stories</h2><br>
 ● As a new user, I want to be able to easily enter a chat room so I can quickly start talking to my
 friends and family.<br>
@@ -51,25 +22,37 @@ time.<br>
 ● As a user with a visual impairment, I want to use a chat app that is compatible with a screen
 reader so that I can engage with a chat interface.<br>
 
-<h1>Key Features</h1><br>
-● A page where users can enter their name and choose a background color for the chat screen
-before joining the chat.<br>
-● A page displaying the conversation, as well as an input field and submit button.<br>
-● The chat must provide users with two additional communication features: sending images
-and location data.<br>
-● Data gets stored online and offline.<br>
+<h1>Downloading & Using Chat App</h1><br>
+- If you would like to test chat app for yourself please follow the steps below:<br>
+<br>
+● Clone the repository/Download the ZIP: https://github.com/priya-km/chat-app.git <br>
+● Using the terminal head over to the project folder and type in "npm install" to download the needed project dependencies. <br>
+● Download & Install Expo: <br>
+- Install Expo CLI as a global npm package: <br>
+            - Mac users: yarn add global expo-cli <br>
+            OR <br>
+            - Windows users: npm install --global expo-cli <br>
+            <br>
+                                                               
+● Create an account and log in at https://expo.dev/ <br>
+● Follow expo CLI's instructions. <br>
+● Install the Expo Go app on your phone & log in (for testing purposes) <br>
+● Start the project: npx expo start <br>
+● Scan the QR code provided in your terminal, or choose deploy method from the menu on the terminal.  <br>
 
-<h1>Technical Requirements</h1><br>
-● The app must be written in React Native.<br>
-● The app must be developed using Expo.<br>
-● The app must be styled according to the given screen design.<br>
-● Chat conversations must be stored in Google Firestore Database.<br>
-● The app must authenticate users anonymously via Google Firebase authentication.<br>
-● Chat conversations must be stored locally.<br>
-● The app must let users pick and send images from the phone’s image library.<br>
-● The app must let users take pictures with the device’s camera app, and send them.<br>
-● The app must store images in Firebase Cloud Storage.<br>
-● The app must be able to read the user’s location data.<br>
-● Location data must be sent via the chat in a map view.<br>
-● The chat interface and functionality must be created using the Gifted Chat library.<br>
-● The app’s codebase must contain comments.<br>
+<h1>Tech Stack</h1><br>
+● React Native.<br>
+● Expo.<br>
+● Google Firestore Database.<br>
+        - Google Firebase authentication for anonymous sign in<br>
+        - Firebase Cloud Storage for storing images.<br>
+● Gifted Chat library.<br>
+
+<h2>Author</h2>
+<h3>Priya K Maharban</h3>
+
+● [GitHub Profile](https://github.com/priya-km "Priya-Maharban GitHub profile link")
+<br>
+● [Email](mailto:priyakmaharban@gmail.com?subject=Hi% "Hi!")
+<br>
+● [Portfolio Website](https://priya-km.github.io/portfolio "Priya Maharban Portfolio website")
